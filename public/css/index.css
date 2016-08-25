@@ -1,0 +1,79 @@
+.content {
+    height: auto;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.content:after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+
+.blog-title {
+    width: 980px;
+    height: 50px;
+    /*line-height: 80px;*/
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+    font-size: 20px;
+    color: peru;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.blog-handle {
+    width: 1000px;
+    height: 40px;
+    background: black;
+}
+.blog-login {
+    float: left;
+    width: 499px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    border-right: 2px solid darkorange;
+    font-size: 20px;
+}
+.blog-reg {
+    float: left;
+    width: 499px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+.blog-handle a {
+    color: #fff;
+}
+.blog-handle a:hover {
+    color: red;
+}
+.icon {
+    width: 1000px;
+    height: 500px;
+}
+
+.news {
+    width: 1000px;
+    height: 300px;
+    margin-top: 30px;
+}
+.news dl {
+    width: 250px;
+    height: 300px;
+    float: left;
+    margin: 0 40px;
+}
+.news dl dt {
+    width: 250px;
+    height: 200px;
+}
+.news dl dd {
+    width: 250px;
+    height: 90px;
+    padding-top: 10px;
+}
+.news dd p {
+    line-height: 18px;
+    text-indent: 2em;
+    font-size: 12px;
+}

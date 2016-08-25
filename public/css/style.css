@@ -1,0 +1,82 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img{margin:0;padding:0;}
+a{text-decoration:none;}
+ul,li{list-style:none;}
+body{font-size:12px;font-family:"微软雅黑";}
+img{border:0;display:block;}
+
+body {
+    background: gainsboro;
+}
+.nav-outer {
+    width: 100%;
+    height: 50px;
+    background: gainsboro;
+    margin-top: 30px;
+}
+.nav-top {
+    width: 1000px;
+    height: 50px;
+    margin: 0 auto;
+}
+.nav li {
+    float: left;
+}
+.nav li a {
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    float: left;
+    border-left: 2px solid cornsilk;
+}
+.nav li .reg{
+    border-right: 2px solid cornsilk;
+}
+.nav li a:hover {
+    color: orange;
+}
+
+#container {
+    width: 100%;
+    height: auto;
+    background: gainsboro;
+}
+#container:after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+
+.footerbg {
+    width: 100%;
+    height: 200px;
+}
+.footer {
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+    background: grey;
+}
+.footer-title {
+    height: 45px;
+    width: 970px;
+    font-size: 20px;
+    color: darkred;
+    padding: 20px 0 0 30px;
+    border-bottom: 2px solid whitesmoke;
+}
+.partner {
+    width: 1000px;
+    height: 120px;
+}
+.partner a {
+    display: block;
+    float: left;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    color: papayawhip;
+    text-align: center;
+    line-height: 40px;
+}
+.partner a:hover {
+    color: darkred;
+}
