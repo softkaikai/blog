@@ -1,6 +1,6 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
-var exhbs =
+
 
 app = new express();
 //设置端口
@@ -13,14 +13,16 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 //将public文件夹设置成静态文件
 app.use(express.static(__dirname + '/public'));
+//引入body-parser模块
+app.use(require('body-parser')());
 
 
-app.get('/', function(req, res) {
-    res.render('index', {
-        title:'我的博客',
-        stylecss: 'index.css'
-    })
-});
+
+
+
+
+
+require('./route/routes')(app);
 
 app.listen(app.get('port'), function() {
     console.log('The server of Blog is runging on the port ' + app.get('port'));

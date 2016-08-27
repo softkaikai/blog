@@ -1,0 +1,28 @@
+<form action="" method="post" id="reg-form">
+    <fieldset class="reg-field">
+        <legend class="reg-legend">用户注册：</legend>
+        <div class="reg-group">
+            <label for="username" class="reg-label">用户名：</label>
+            <input type="text" autocomplete="off" name="username" id="username">
+        </div>
+        <div class="reg-group">
+            <label for="pass" class="reg-label">密码：</label>
+            <input type="password" autocomplete="off" name="pass" id="pass">
+        </div>
+        <div class="reg-group">
+            <label for="pass-repeat" class="reg-label">密码确认：</label>
+            <input type="password" autocomplete="off" name="pass-repeat" id="pass-repeat">
+        </div>
+        <div class="reg-group">
+            <label for="sub" class="reg-label">注册：</label>
+            <input type="submit" name="sub" id="sub">
+        </div>
+        {{#if err}}
+        <p class="err">{{err}}</p>
+        {{/if}}
+        {{#if sucess}}
+        <p class="sucess">{{sucess}}</p>
+        {{/if}}
+
+    </fieldset>
+</form>

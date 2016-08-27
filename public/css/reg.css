@@ -1,0 +1,56 @@
+#reg-form {
+    width: 1000PX;
+    height: 400px;
+    margin: 0 auto;
+}
+.reg-field {
+    width: 1000px;
+    height: 400px;
+}
+.reg-legend {
+    font-size: 25px;
+    color: #b9b3a7;
+    margin-left: 20px;
+}
+.reg-group {
+    height: 60px;
+    /*background: blue;*/
+    line-height: 60px;
+}
+.reg-label {
+    display: inline-block;
+    font-size: 18px;
+    color: #888888;
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    padding-top: 2px;
+    padding-left: 20px;
+    /*background: red;*/
+    margin-top: 4px;
+}
+#username,#pass,#pass-repeat {
+    width: 200px;
+    height: 20px;
+}
+#sub {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+}
+.err {
+    height: 60px;
+    font-size: 20px;
+    color: red;
+    padding-left: 40px;
+    background: darkred;
+    line-height: 60px;
+}
+.sucess {
+    height: 60px;
+    font-size: 20px;
+    color: black;
+    padding-left: 40px;
+    background: green;
+    line-height: 60px;
+}

@@ -30,6 +30,7 @@ body {
     color: #fff;
     float: left;
     border-left: 2px solid cornsilk;
+    font-size: 16px;
 }
 .nav li .reg{
     border-right: 2px solid cornsilk;
