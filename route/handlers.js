@@ -9,14 +9,13 @@ app.use(session({
     saveUninitialized: true,
     secret: 'baby',
     cookie: {
-        maxAge: 1000*60*20,
+        maxAge: 1000*60*60*24,
         httpOnly: true
     },
     store: new MongoStore({
         url: 'mongodb://localhost/blog'
     })
 }));
-
 
 exports.index = function(req, res) {
 
@@ -28,12 +27,60 @@ exports.index = function(req, res) {
         stylecss: 'index.css'
     })
 };
+// 路由/u/:user
 exports.user = function(req, res) {
+    if(req.session.client) {
+        res.locals.username = req.session.client.username;
+    }
+    user.myblogModel.findByName(req.session.client.username, function(err, data) {
+        if(err) {
+            console.log('dont find myblogModel');
+        } else {
+            //console.log(data);
+            res.render('myBlog', {
+                title: '我的微博',
+                stylecss: 'myBlog.css',
+                js: 'myblog.js',
+                myblog: data
+            });
+        }
+
+    });
 
 };
-exports.post = function(req, res) {
+exports.publish = function(req, res) {
+
+    var newBlog = new user.myblogModel({
+        username: req.session.client.username,
+        title: req.body.publishTitle,
+        content: req.body.publishContent
+    });
+    newBlog.save(function(err, data) {
+        if(err) {
+            console.log('The newBlog saving failed');
+            return res.redirect(303, '/u/' + req.session.client.username);
+        }
+        console.log('newBlog saving sucessed');
+        res.redirect(303, '/u/' + req.session.client.username);
+    })
+};
+exports.delete = function(req, res) {
+    console.log(req.body);
+    user.myblogModel.remove({
+        username: req.session.client.username,
+        title: req.body.inputhidden
+    }, function(err, data) {
+        if(err) {
+            console.log('The err of delete is ' + err);
+            return res.redirect(303, '/u/' + req.session.client.username);
+        }
+        console.log('The data of delete is ' + data);
+        res.redirect(303, '/u/' + req.session.client.username);
+    });
 
 };
+
+
 exports.reg = function(req, res) {
     //console.log(req.session.err);
     res.locals.err = req.session.err;

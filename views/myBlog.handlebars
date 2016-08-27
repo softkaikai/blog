@@ -1,28 +1,35 @@
-<form action="" method="post" id="reg-form">
-    <fieldset class="reg-field">
-        <legend class="reg-legend">用户注册：</legend>
-        <div class="reg-group">
-            <label for="username" class="reg-label">用户名：</label>
-            <input type="text" autocomplete="off" name="username" id="username">
-        </div>
-        <div class="reg-group">
-            <label for="pass" class="reg-label">密码：</label>
-            <input type="password" autocomplete="off" name="pass" id="pass">
-        </div>
-        <div class="reg-group">
-            <label for="pass-repeat" class="reg-label">密码确认：</label>
-            <input type="password" autocomplete="off" name="pass-repeat" id="pass-repeat">
-        </div>
-        <div class="reg-group">
-            <label for="sub" class="reg-label">注册：</label>
-            <input type="submit" name="sub" id="sub">
-        </div>
-        {{#if err}}
-        <p class="err">{{err}}</p>
-        {{/if}}
-        {{#if sucess}}
-        <p class="sucess">{{sucess}}</p>
-        {{/if}}
+<div class="nr">
+    <p class="nr-title">我的博客</p>
+    <span class="publish">发表博客</span>
+    <div class="publish-blog">
+        <form action="/publish" method="post">
+            <div class="publishTDiv">
+                <label for="publishTitle" class="publish-label">标题：</label>
+                <input autocomplete="off" type="text" name="publishTitle" id="publishTitle">
+            </div>
+            <div class="publishCDiv">
+                <label for="publishContent" class="publish-label">内容：</label>
+                <textarea name="publishContent" id="publishContent" ></textarea>
+            </div>
+            <div class="isPublish">
+                <button type="submit" class="yesPublish">发表</button>
+                <a href="javascript:;" class="noPublish">取消</a>
+            </div>
+        </form>
+    </div>
+    <div class="myblog">
+        {{#each myblog}}
+        <div class="myblog-detail">
+            <p class="myblog-title">{{this.title}}</p>
+            <div class="myblog-content">
+                {{this.content}}
+            </div>
+            <form action="/delete" method="post">
+                <input type="hidden" name="inputhidden" class="inputhidden">
+                <button type="submit" class="blog-delete">删除</button>
+            </form>
 
-    </fieldset>
-</form>
+        </div>
+        {{/each}}
+    </div>
+</div>

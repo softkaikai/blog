@@ -17,7 +17,7 @@
             })
         })
     </script>
-
+    <script src="/js/{{js}}"></script>
 </head>
 <body>
 <div class="nav-outer">
@@ -29,7 +29,7 @@
                 <li><a href="/login">登录</a></li>
                 <li><a href="/reg" class="reg">注册</a></li>
             {{else}}
-                <li><a href="javascript:;">我的微博</a></li>
+                <li><a href="/u/{{username}}">我的微博</a></li>
                 <li><a id="logout" href="javascript:;" class="reg">退出登录</a></li>
             {{/unless}}
         </ul>

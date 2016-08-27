@@ -4,7 +4,8 @@ module.exports = function(app) {
 
     app.get('/', routes.index);
     app.get('/u/:user', routes.user);
-    app.post('/post', routes.post);
+    app.post('/publish', routes.publish);
+    app.post('/delete', routes.delete);
     app.get('/reg', routes.reg);
     app.post('/reg', routes.doReg);
     app.get('/login', routes.login);

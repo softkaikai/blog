@@ -23,6 +23,7 @@ body {
     left: 400px;
     display: none;
     box-shadow: 1px 1px 4px 4px #f5b455;
+    z-index: 2;
 }
 .isLogout p {
     height: 90px;
