@@ -13,11 +13,66 @@ body {
     background: gainsboro;
     margin-top: 30px;
 }
+.isLogout {
+    width: 400px;
+    height: 250px;
+    background: gainsboro url("../img/isLogout.jpg") no-repeat -70px -130px;
+    border-radius: 20px 20px;
+    position: absolute;
+    top: 300px;
+    left: 400px;
+    display: none;
+    box-shadow: 1px 1px 4px 4px #f5b455;
+}
+.isLogout p {
+    height: 90px;
+    font-size: 25px;
+    color: peru;
+    padding-top: 20px;
+    text-indent: 2em;
+
+}
+.yesLogout {
+    display: block;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    background: darkred;
+    color: red;
+    font-size: 16px;
+    margin:30px 0 15px 50px;
+    text-align: center;
+    border-radius: 10px 10px;
+}
+.noLogout {
+    display: block;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    background: green;
+    color: black;
+    font-size: 16px;
+    margin-left: 50px;
+    text-align: center;
+    border-radius: 10px 10px;
+}
 .nav-top {
     width: 1000px;
     height: 50px;
     margin: 0 auto;
 }
+.nav {
+    width: 500px;
+}
+.user-status {
+    width: 200px;
+    float: right;
+    font-size: 16px;
+    color: peru;
+    height: 50px;
+    line-height: 50px;
+}
+
 .nav li {
     float: left;
 }

@@ -1,0 +1,24 @@
+<form action="" method="post" id="login-form">
+    <fieldset class="login-field">
+        <legend class="login-legend">用户登录：</legend>
+        <div class="login-group">
+            <label for="username" class="login-label">用户名：</label>
+            <input type="text" autocomplete="off" name="username" id="username">
+        </div>
+        <div class="login-group">
+            <label for="pass" class="login-label">密码：</label>
+            <input type="password" autocomplete="off" name="pass" id="pass">
+        </div>
+        <div class="login-group">
+            <label for="sub" class="login-label">登录：</label>
+            <input type="submit" name="sub" id="sub">
+        </div>
+        {{#if err}}
+        <p class="err">{{err}}</p>
+        {{/if}}
+        {{#if sucess}}
+        <p class="sucess">{{sucess}}</p>
+        {{/if}}
+
+    </fieldset>
+</form>

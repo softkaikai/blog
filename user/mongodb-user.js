@@ -16,4 +16,4 @@ userSchema.statics.findByName = function(name, cb) {
 };
 var userModel = mongoose.model('userModel', userSchema);
 
-module.exports = userModel;
+module.exports.userModel = userModel;

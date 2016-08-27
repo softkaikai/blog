@@ -6,17 +6,46 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/{{stylecss}}" type="text/css" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/jquery-3.1.0.js"></script>
+    <script>
+        $(function() {
+            $('#logout').on('click', function() {
+                $('.isLogout').show();
+                $('.noLogout').on('click', function() {
+                    $('.isLogout').hide();
+                })
+            })
+        })
+    </script>
+
 </head>
 <body>
 <div class="nav-outer">
-<div class="nav-top">
-    <ul class="nav">
-        <li><a href="/">首页</a></li>
-        <li><a href="/login">登录</a></li>
-        <li><a href="/reg" class="reg">注册</a></li>
-    </ul>
-
-</div>
+    <div class="nav-top">
+        <ul class="nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="javascript:;">遨游微博</a></li>
+            {{#unless username}}
+                <li><a href="/login">登录</a></li>
+                <li><a href="/reg" class="reg">注册</a></li>
+            {{else}}
+                <li><a href="javascript:;">我的微博</a></li>
+                <li><a id="logout" href="javascript:;" class="reg">退出登录</a></li>
+            {{/unless}}
+        </ul>
+        <div class="user-status">
+            {{#if username}}
+                用户状态：已登录
+            {{else}}
+                用户状态：未登录
+            {{/if}}
+        </div>
+    </div>
+    <div class="isLogout">
+        <p>亲！！！你确定肯定sure要退出吗。。。。。。？？？？</p>
+        <a class="yesLogout" href="/logout">是的，我就是要退出</a>
+        <a class="noLogout" href="javascript:;">算了，我还是不退了</a>
+    </div>
 </div>
 <div id="container">
 

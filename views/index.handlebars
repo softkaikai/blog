@@ -1,8 +1,12 @@
 <div class="content">
     <p class="blog-title">Wlecome to DIYblog</p>
     <ul class="blog-handle">
-        <li class="blog-login"><a href="/login">登录</a></li>
-        <li class="blog-reg"><a href="/reg">注册</a></li>
+        {{#unless username}}
+            <li class="blog-login"><a href="/login">登录</a></li>
+            <li class="blog-reg"><a href="/reg">注册</a></li>
+        {{else}}
+            <li class="blog-logout"><a href="/logout">退出登录</a></li>
+        {{/unless}}
     </ul>
     <div class="icon">
         <img src="/img/icon1.jpg" alt="">

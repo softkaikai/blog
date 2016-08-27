@@ -19,6 +19,10 @@ app.use(session({
 
 
 exports.index = function(req, res) {
+
+    if(req.session.client) {
+        res.locals.username = req.session.client.username;
+    }
     res.render('index', {
         title:'我的博客',
         stylecss: 'index.css'
@@ -34,6 +38,9 @@ exports.reg = function(req, res) {
     //console.log(req.session.err);
     res.locals.err = req.session.err;
     res.locals.sucess = req.session.sucess;
+    if(req.session.client) {
+        res.locals.username = req.session.client.username;
+    }
     delete req.session.err;
     delete req.session.sucess;
     res.render('reg', {
@@ -47,11 +54,11 @@ exports.doReg = function(req, res) {
         req.session.err = '两次输入密码不一致,请核对后重新输入';
         return res.redirect(303, '/reg');
     }
-    var client = new user({
+    var client = new user.userModel({
         username: req.body.username,
         password: req.body.pass
     });
-    user.findByName(client.username, function(err, data) {
+    user.userModel.findByName(client.username, function(err, data) {
         console.log(data);
         if(data.length > 0) {
             err = 'The username already exist';
@@ -74,17 +81,41 @@ exports.doReg = function(req, res) {
             }
         });
     });
-    //console.log(111);
-    //res.redirect(303, '/reg');
 };
 exports.login = function(req, res) {
-
+    res.locals.err = req.session.err;
+    res.locals.sucess = req.session.sucess;
+    if(req.session.client) {
+        res.locals.username = req.session.client.username;
+    }
+    delete req.session.err;
+    delete req.session.sucess;
+    res.render('login', {
+        title: '用户登录',
+        stylecss: 'login.css'
+    })
 };
 exports.doLogin = function(req, res) {
-
+    user.userModel.findByName(req.body.username, function(err, data) {
+        if(data.length == 0) {
+            req.session.err = '该用户名不存在';
+            return res.redirect(303, '/login');
+        }
+        if(req.body.pass != data[0].password) {
+            req.session.err = '用户名和密码不匹配';
+            return res.redirect(303, '/login');
+        }
+        req.session.sucess = '登录成功';
+        req.session.client = {
+            username: req.body.username,
+            password: req.body.pass
+        };
+        return res.redirect(303, '/login');
+    })
 };
 exports.logout = function(req, res) {
-
+    req.session.client = null;
+    res.redirect(303, '/');
 };
 exports.do404 = function(req, res, next) {
     res.status(404);
