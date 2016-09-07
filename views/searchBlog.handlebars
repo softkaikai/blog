@@ -1,0 +1,26 @@
+<div class="nr">
+    <p class="nr-title">遨游博客</p>
+    <form action="/dosearch" method="post" id="search-form">
+        <input type="text" name="searchtxt" id="searchtxt" placeholder="请输入发布微博的作者或者微博标题">
+        <input type="submit" id="search" value="查询博客">
+    </form>
+
+    <div class="myblog">
+        {{#each myblog}}
+            <div class="myblog-detail">
+                <p class="myblog-title">{{this.title}}</p>
+                <div class="myblog-content">
+                    {{this.content}}
+                </div>
+
+            </div>
+        {{/each}}
+    </div>
+
+    {{#if err}}
+        <p class="err">{{err}}</p>
+    {{/if}}
+    {{#if sucess}}
+        <p class="sucess">{{sucess}}</p>
+    {{/if}}
+</div>

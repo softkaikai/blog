@@ -17,14 +17,16 @@
             })
         })
     </script>
+    {{#if js}}
     <script src="/js/{{js}}"></script>
+    {{/if}}
 </head>
 <body>
 <div class="nav-outer">
     <div class="nav-top">
         <ul class="nav">
             <li><a href="/">首页</a></li>
-            <li><a href="javascript:;">遨游微博</a></li>
+            <li><a href="/search">遨游微博</a></li>
             {{#unless username}}
                 <li><a href="/login">登录</a></li>
                 <li><a href="/reg" class="reg">注册</a></li>

@@ -164,6 +164,36 @@ exports.logout = function(req, res) {
     req.session.client = null;
     res.redirect(303, '/');
 };
+exports.search = function(req, res) {
+    res.locals.err = req.session.err;
+    res.locals.sucess = req.session.sucess;
+    res.locals.myblog = req.session.data;
+    if(req.session.client) {
+        res.locals.username = req.session.client.username;
+    }
+    delete req.session.err;
+    delete req.session.sucess;
+    delete req.session.data;
+    res.render('searchBlog', {
+        title: "遨游博客",
+        stylecss: "searchBlog.css"
+    });
+};
+exports.dosearch = function(req, res) {
+    user.myblogModel.findByName(req.body.searchtxt, function(err, data) {
+        if(err) {
+            console.log('错误信息是: ' + err);
+            req.session.err = '没有找到相应的内容';
+            return res.redirect(303, '/search');
+        }
+        if(data.length == 0) {
+            req.session.err = '没有找到相应的内容'
+            return res.redirect(303, '/search');
+        }
+        req.session.data = data;
+        return res.redirect(303, '/search');
+    })
+};
 exports.do404 = function(req, res, next) {
     res.status(404);
     res.send('404 Not found');
